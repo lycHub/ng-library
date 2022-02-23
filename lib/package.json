@@ -8,11 +8,24 @@
   "dependencies": {
     "tslib": "^2.2.0"
   },
-  "main": "bundles/xm-ui-libs.umd.js",
-  "module": "fesm2015/xm-ui-libs.js",
-  "es2015": "fesm2015/xm-ui-libs.js",
-  "esm2015": "esm2015/xm-ui-libs.js",
-  "fesm2015": "fesm2015/xm-ui-libs.js",
+  "module": "fesm2015/xm-ui-libs.mjs",
+  "es2020": "fesm2020/xm-ui-libs.mjs",
+  "esm2020": "esm2020/xm-ui-libs.mjs",
+  "fesm2020": "fesm2020/xm-ui-libs.mjs",
+  "fesm2015": "fesm2015/xm-ui-libs.mjs",
   "typings": "xm-ui-libs.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./xm-ui-libs.d.ts",
+      "esm2020": "./esm2020/xm-ui-libs.mjs",
+      "es2020": "./fesm2020/xm-ui-libs.mjs",
+      "es2015": "./fesm2015/xm-ui-libs.mjs",
+      "node": "./fesm2015/xm-ui-libs.mjs",
+      "default": "./fesm2020/xm-ui-libs.mjs"
+    }
+  },
   "sideEffects": false
 }
