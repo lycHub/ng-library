@@ -1,0 +1,156 @@
+{
+  "id": "1534973",
+  "name": "xmly",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "208547",
+      "name": "arrow-down-line",
+      "font_class": "arrow-down-line",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "208865",
+      "name": "arrow-up-line",
+      "font_class": "arrow-up-line",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "1210950",
+      "name": "Star",
+      "font_class": "Star",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "7275336",
+      "name": "Close",
+      "font_class": "Close",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "1567608",
+      "name": "play",
+      "font_class": "play1",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "4638869",
+      "name": "耳机",
+      "font_class": "headset",
+      "unicode": "e885",
+      "unicode_decimal": 59525
+    },
+    {
+      "icon_id": "380363",
+      "name": "play",
+      "font_class": "play",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "433854",
+      "name": "add",
+      "font_class": "add",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "1410289",
+      "name": "delete",
+      "font_class": "delete",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "4586560",
+      "name": "pause",
+      "font_class": "pause",
+      "unicode": "e95f",
+      "unicode_decimal": 59743
+    },
+    {
+      "icon_id": "6145597",
+      "name": "next",
+      "font_class": "next",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "6145631",
+      "name": "previous",
+      "font_class": "previous",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "7215705",
+      "name": "Add",
+      "font_class": "Add",
+      "unicode": "e6e6",
+      "unicode_decimal": 59110
+    },
+    {
+      "icon_id": "722171",
+      "name": "arrow-left",
+      "font_class": "previewleft",
+      "unicode": "e75b",
+      "unicode_decimal": 59227
+    },
+    {
+      "icon_id": "722172",
+      "name": "arrow-right",
+      "font_class": "previewright",
+      "unicode": "e75c",
+      "unicode_decimal": 59228
+    },
+    {
+      "icon_id": "551841",
+      "name": "省略号",
+      "font_class": "more",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "7214833",
+      "name": "Double arrow left",
+      "font_class": "Doublearrowleft",
+      "unicode": "e6c2",
+      "unicode_decimal": 59074
+    },
+    {
+      "icon_id": "7214837",
+      "name": "Double arrow right",
+      "font_class": "Doublearrowright",
+      "unicode": "e6c3",
+      "unicode_decimal": 59075
+    },
+    {
+      "icon_id": "499113",
+      "name": "add-user",
+      "font_class": "adduser",
+      "unicode": "e8e4",
+      "unicode_decimal": 59620
+    },
+    {
+      "icon_id": "4171091",
+      "name": "目录",
+      "font_class": "mulu",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "6242379",
+      "name": "question",
+      "font_class": "question",
+      "unicode": "e7c2",
+      "unicode_decimal": 59330
+    }
+  ]
+}
