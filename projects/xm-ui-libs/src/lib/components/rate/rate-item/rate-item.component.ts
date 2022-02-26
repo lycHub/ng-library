@@ -1,5 +1,5 @@
 import {Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter, Input, TemplateRef} from '@angular/core';
-import {TypeWithUndefined} from "../../../utils";
+import {TypeWithUndefined} from "../../../core";
 
 @Component({
   selector: 'xm-rate-item',

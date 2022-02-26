@@ -10,7 +10,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {TypeWithUndefined} from "../../utils";
+import {TypeWithUndefined} from "../../core";
 
 @Component({
   selector: 'xm-rate',

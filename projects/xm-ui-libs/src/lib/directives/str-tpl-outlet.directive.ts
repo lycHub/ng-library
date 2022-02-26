@@ -1,5 +1,5 @@
 import {Directive, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef} from '@angular/core';
-import {TypeWithUndefined} from "../utils";
+import {TypeWithUndefined} from "../core";
 
 @Directive({
   selector: '[xmStrTplOutlet]'

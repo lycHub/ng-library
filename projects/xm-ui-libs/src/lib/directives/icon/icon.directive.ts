@@ -1,6 +1,6 @@
 import {Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges} from '@angular/core';
 import {IconType} from './type';
-import {TypeWithUndefined} from "../../utils";
+import {TypeWithUndefined} from "../../core";
 
 @Directive({
   selector: 'i[xmIcon]',
