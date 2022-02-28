@@ -3,6 +3,7 @@ import {
   Directive,
   ElementRef,
   HostListener,
+  Inject,
   Input,
   OnChanges,
   OnDestroy,
@@ -12,9 +13,12 @@ import {
 import {FlexibleConnectedPositionStrategy, Overlay, OverlayRef} from "@angular/cdk/overlay";
 import { ComponentPortal } from '@angular/cdk/portal';
 import {TooltipComponent} from "./component";
-import {TypeWithUndefined} from "../../core";
+import {TypeWithNull, TypeWithUndefined} from "../../core";
 import {BooleanInput, coerceBooleanProperty, coerceNumberProperty, NumberInput} from "@angular/cdk/coercion";
 import {ConnectedPosition} from "@angular/cdk/overlay/position/flexible-connected-position-strategy";
+import { Subject } from 'rxjs';
+import {takeUntil} from "rxjs/operators";
+import { DOCUMENT } from '@angular/common';
 
 
 export const CLASS_PREFIX = 'xm';
@@ -57,11 +61,12 @@ export class TooltipDirective implements AfterViewInit, OnChanges, OnDestroy {
 
   #overlayRef: TypeWithUndefined<OverlayRef>;
   #portal: TypeWithUndefined<ComponentPortal<TooltipComponent>>;
-  #tooltipInstance: TypeWithUndefined<TooltipComponent>;
+  #tooltipInstance: TypeWithNull<TooltipComponent> = null;
 
   #enterEventHandler = () => {};
   #leaveEventHandler = () => {};
-
+  #wheelEventHandler = () => {};
+  readonly destroyed = new Subject<void>();
   #positionConfig: { [key in TooltipPosition]: ConnectedPosition } = {
     top: {
       originX: 'center',
@@ -98,6 +103,7 @@ export class TooltipDirective implements AfterViewInit, OnChanges, OnDestroy {
     readonly overlay: Overlay,
     readonly cdr: ChangeDetectorRef,
     readonly viewContainer: ViewContainerRef,
+    @Inject(DOCUMENT) readonly document: Document,
   ) { }
 
   ngOnChanges({ tooltipClass, position }: SimpleChanges) {
@@ -113,10 +119,24 @@ export class TooltipDirective implements AfterViewInit, OnChanges, OnDestroy {
     if (!this.disabled && this.hostElementRef.nativeElement) {
       this.#enterEventHandler = this.rd2.listen(this.hostElementRef.nativeElement, 'mouseenter', () => {
         this.#listenLeaveEvent();
+        this.#listenWheelEvent();
         this.show();
       });
     }
+  }
 
+  // 滚动时，判断鼠标所在的div, 如果不是宿主就hide
+  #listenWheelEvent() {
+    this.#wheelEventHandler = this.rd2.listen(this.hostElementRef.nativeElement, 'wheel', (event: WheelEvent) => {
+      if (this.#tooltipInstance?.visibility === 'visible') {
+        // 鼠标所在的div
+        const elementUnderPointer = this.document.elementFromPoint(event.clientX, event.clientY);
+        const element = this.hostElementRef.nativeElement;
+        if (elementUnderPointer !== element && !element.contains(elementUnderPointer)) {
+          this.hide();
+        }
+      }
+    });
   }
 
   #listenLeaveEvent() {
@@ -129,15 +149,17 @@ export class TooltipDirective implements AfterViewInit, OnChanges, OnDestroy {
     if (!this.#overlayRef) {
       this.#overlayRef = this.#createOverlay();
     }
+    this.#detach();
     if (!this.#portal) {
       this.#portal = new ComponentPortal(TooltipComponent, this.viewContainer);
     }
+
     this.#tooltipInstance = this.#overlayRef.attach(this.#portal).instance;
     this.#updateTooltipClass();
     this.#updateMessage();
     this.#updatePosition();
     this.#tooltipInstance.show(this.showDelay);
-    this.#tooltipInstance.hideSubject.pipe().subscribe(() => {
+    this.#tooltipInstance.afterHidden().pipe(takeUntil(this.destroyed)).subscribe(() => {
       this.#detach();
     })
   }
@@ -150,6 +172,7 @@ export class TooltipDirective implements AfterViewInit, OnChanges, OnDestroy {
     if (this.#overlayRef?.hasAttached()) {
       this.#overlayRef.detach();
     }
+    this.#tooltipInstance = null;
   }
 
   #updateMessage() {
@@ -184,6 +207,14 @@ export class TooltipDirective implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('directive destroy');
+    if (this.#overlayRef) {
+      this.#overlayRef.dispose();
+      this.#tooltipInstance = null;
+    }
+    this.#enterEventHandler();
+    this.#leaveEventHandler();
+
+    this.destroyed.next();
+    this.destroyed.complete();
   }
 }

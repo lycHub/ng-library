@@ -1,7 +1,7 @@
 import {animate, keyframes, state, style, transition, trigger, AnimationEvent} from '@angular/animations';
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 import {CLASS_PREFIX, CLASS_TIP} from "./directive";
-import {Subject} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {TypeWithUndefined} from "../../core";
 
 type TooltipState = 'initial' | 'visible' | 'hide';
@@ -89,6 +89,12 @@ export class TooltipComponent implements OnDestroy {
       this.hideSubject.next();
     }
   }
+
+  afterHidden(): Observable<void> {
+    return this.hideSubject.asObservable();
+  }
+
+
   ngOnDestroy() {
     this.#clearTimer();
     this.hideSubject.complete();

@@ -30,6 +30,9 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
       border: 1px solid;
       overflow-y: auto;
     }
+    .demo-box {
+      height: 500px;
+    }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
