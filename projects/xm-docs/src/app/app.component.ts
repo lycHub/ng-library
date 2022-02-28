@@ -5,9 +5,22 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   template: `
     <div class="app-root">
       <div class="demo-box">
-        <a xmBtn xmRipples>{{ title }}</a>
+        <a
+          xmBtn
+          xmRipples
+          xmTooltip="top content !!!!"
+          xmTooltipClass="my-tooltip-cls"
+          [xmTooltipDisabled]="false"
+          #xmTooltip="xmTooltip"
+          xmTooltipPosition="left"
+        >
+          {{ title }}
+        </a>
       </div>
     </div>
+
+    <button (click)="xmTooltip.show()">show</button>
+    <button (click)="xmTooltip.hide()">hide</button>
   `,
   styles: [`
     .app-root {

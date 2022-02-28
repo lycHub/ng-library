@@ -1,3 +1,3 @@
-export * from './components/test-ui';
-export * from './components/rate';
-export * from './directives';
+export * from './lib/components/test-ui';
+export * from './lib/components/rate';
+export * from './lib/directives';

@@ -1,0 +1,34 @@
+import { AfterViewInit, ChangeDetectorRef, ElementRef, OnChanges, OnDestroy, Renderer2, SimpleChanges, ViewContainerRef } from '@angular/core';
+import { Overlay } from "@angular/cdk/overlay";
+import { BooleanInput, NumberInput } from "@angular/cdk/coercion";
+import * as i0 from "@angular/core";
+export declare const CLASS_PREFIX = "xm";
+export declare const CLASS_TIP = "tooltip";
+export declare const CLASS_PANEL = "panel";
+declare type TooltipPosition = 'top' | 'bottom' | 'left' | 'right';
+export declare class TooltipDirective implements AfterViewInit, OnChanges, OnDestroy {
+    #private;
+    readonly hostElementRef: ElementRef<HTMLElement>;
+    readonly rd2: Renderer2;
+    readonly overlay: Overlay;
+    readonly cdr: ChangeDetectorRef;
+    readonly viewContainer: ViewContainerRef;
+    message: string;
+    offset: number;
+    tooltipClass: string;
+    position: TooltipPosition;
+    set showDelay(value: NumberInput);
+    get showDelay(): number;
+    set disabled(value: BooleanInput);
+    get disabled(): boolean;
+    hideDelay: number;
+    constructor(hostElementRef: ElementRef<HTMLElement>, rd2: Renderer2, overlay: Overlay, cdr: ChangeDetectorRef, viewContainer: ViewContainerRef);
+    ngOnChanges({ tooltipClass, position }: SimpleChanges): void;
+    ngAfterViewInit(): void;
+    show(): void;
+    hide(): void;
+    ngOnDestroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<TooltipDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<TooltipDirective, "[xmTooltip]", ["xmTooltip"], { "message": "xmTooltip"; "offset": "xmTooltipOffset"; "tooltipClass": "xmTooltipClass"; "position": "xmTooltipPosition"; "showDelay": "xmTooltipShowDelay"; "disabled": "xmTooltipDisabled"; "hideDelay": "xmTooltipHideDelay"; }, {}, never>;
+}
+export {};
