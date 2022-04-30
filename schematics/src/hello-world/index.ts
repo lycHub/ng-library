@@ -33,12 +33,7 @@ import {getWorkspace} from '@schematics/angular/utility/workspace';
 import {findModuleFromOptions, buildRelativePath} from '@schematics/angular/utility/find-module';
 import { addDeclarationToModule } from '@schematics/angular/utility/ast-utils';
 import { InsertChange } from '@schematics/angular/utility/change';
-
-export interface HelloWorldSchema {
-  name: string;
-  project: string;
-  path: string;
-}
+import { HelloWorldSchema } from '../types';
 
 export function helloWorld(options: HelloWorldSchema): Rule {
   return async (tree: Tree, _context: SchematicContext) => {
@@ -84,9 +79,9 @@ export function helloWorld(options: HelloWorldSchema): Rule {
     ]);
 
 
-    // 將 最近的module.ts 的程式碼讀取出來
-    const targetModulePath = findModuleFromOptions(tree, options) || project.sourceRoot + '/app/app.module.ts';
-    const moduleContent = tree.read(targetModulePath) || [];
+    // 根据projectName 找到跟模块路径
+    const projectModulePath = findModuleFromOptions(tree, options) || project.sourceRoot + '/app/app.module.ts';
+    const moduleContent = tree.read(projectModulePath) || [];
     const sourceFile = createSourceFile(
       'test.ts',
       moduleContent.toString(), // 轉成字串後丟進去以產生檔案，方便後續操作
@@ -100,14 +95,14 @@ export function helloWorld(options: HelloWorldSchema): Rule {
     let componentName = `Hello${componentFragmentName}Component`;
 
     // 用 buildRelativePath 取得 import 路徑
-    const relativePath = buildRelativePath(targetModulePath, componentPath); // ./madao/hello-madao.component
+    const relativePath = buildRelativePath(projectModulePath, componentPath); // ./madao/hello-madao.component
 
-    // @ts-ignore
+    // @ts-ignore // 將 最近的module.ts 的程式碼讀取出來
     const declarationChanges = addDeclarationToModule(sourceFile, targetModulePath, componentName, relativePath);
 
     // console.log('declarationChanges>>>', declarationChanges);
 
-    const declarationRecorder = tree.beginUpdate(targetModulePath);
+    const declarationRecorder = tree.beginUpdate(projectModulePath);
     for (const change of declarationChanges) {
       if (change instanceof InsertChange) {
         declarationRecorder.insertLeft(change.pos, change.toAdd);
@@ -116,7 +111,7 @@ export function helloWorld(options: HelloWorldSchema): Rule {
     tree.commitUpdate(declarationRecorder);
 
     // 重新讀取檔案並印出來看看
-    console.log(tree.read(targetModulePath)!.toString());
+    // console.log(tree.read(targetModulePath)!.toString());
 
     return chain([
       mergeWith(templateSource) //  MergeStrategy.Overwrite

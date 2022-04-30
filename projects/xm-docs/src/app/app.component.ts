@@ -21,7 +21,8 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 
     <button (click)="xmTooltip.show()">show</button>
     <button (click)="xmTooltip.hide()">hide</button>
-  `,
+  `
+,
   styles: [`
     .app-root {
       width: 300px;

@@ -61,7 +61,7 @@ export function helloWorld(options: HelloWorldSchema): Rule {
         componentFragmentName
       }),
       move(normalize(options.path)), // 输出目录
-      forEach((fileEntry: FileEntry) => { // ??
+      forEach((fileEntry: FileEntry) => { // 上面用applyTemplates可以改名
         if (tree.exists(fileEntry.path)) {
           // tree.overwrite(fileEntry.path, fileEntry.content);
           tree.rename(fileEntry.path, fileEntry.path.replace('.tpl', ''));
@@ -126,10 +126,7 @@ export function helloWorld(options: HelloWorldSchema): Rule {
 
 
     //  在原本的 Identifier 結尾的地方加上 ', componentName' 的字
-    declarationRecorder.insertLeft(poi, toInsert);
-
-    // 把變更記錄提交給 Tree ， Tree 會自動幫我們變更
-    // tree.commitUpdate(declarationRecorder);
+    declarationRecorder.insertLeft(poi, toInsert); // 可用 addDeclarationToModule
 
 
     // 先抓到所有的 ImportDeclaration
@@ -154,6 +151,7 @@ export function helloWorld(options: HelloWorldSchema): Rule {
     // 在最後一個 ImportDeclaration 結束的位置插入程式碼
     declarationRecorder.insertLeft(lastImport?.end || 0, importStr);
 
+    // 把變更記錄提交給 Tree ， Tree 會自動幫我們變更
     tree.commitUpdate(declarationRecorder);
 
 
