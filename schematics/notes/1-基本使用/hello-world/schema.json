@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "HelloSchematics",
+  "title": "Hello Schema",
+  "description": "Generate a file of JavaScript",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Generate in specific Angular CLI workspace project"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the person",
+      "$defaults": {
+        "$source": "defaultName",
+        "index": 0
+      },
+      "x-prompt": "What name would you like?"
+    }
+  },
+  "required": [
+
+  ]
+}
