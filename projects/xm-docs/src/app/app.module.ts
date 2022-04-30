@@ -7,9 +7,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     TestUiModule,
