@@ -31,7 +31,7 @@ import {
 import {getWorkspace} from '@schematics/angular/utility/workspace';
 
 import {findModuleFromOptions, buildRelativePath} from '@schematics/angular/utility/find-module';
-import { addDeclarationToModule } from '@schematics/angular/utility/ast-utils';
+import { addDeclarationToModule } from '@angular/cdk/schematics';
 import { InsertChange } from '@schematics/angular/utility/change';
 
 export interface HelloWorldSchema {

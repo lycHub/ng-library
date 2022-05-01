@@ -5,7 +5,7 @@ import {
   ClassDeclaration,
   createSourceFile,
   isClassDeclaration,
-  isImportDeclaration, isNoSubstitutionTemplateLiteral, isPropertyAssignment,
+  isImportDeclaration, isNoSubstitutionTemplateLiteral,
   isPropertyDeclaration,
   Node,
   PropertyDeclaration,
@@ -13,14 +13,15 @@ import {
   SourceFile
 } from "typescript";
 
-import { InsertChange } from '@schematics/angular/utility/change';
-import {NodePackageInstallTask} from "@angular-devkit/schematics/tasks";
-
+import { InsertChange, applyToUpdateRecorder } from '@schematics/angular/utility/change';
+import { addPackageJsonDependency, NodeDependencyType } from '@schematics/angular/utility/dependencies';
+import {NodePackageInstallTask, RunSchematicTask} from "@angular-devkit/schematics/tasks";
+import {buildRelativePath} from '@schematics/angular/utility/find-module';
 import {
   addModuleImportToModule,
   addImportToModule,
   buildComponent,
-  findModuleFromOptions,
+  findModuleFromOptions
 } from '@angular/cdk/schematics';
 
 export default function(options: HelloWorldSchema): Rule {
@@ -43,6 +44,7 @@ export default function(options: HelloWorldSchema): Rule {
     // console.log('project>>>', project.sourceRoot, project.extensions);
 
 
+    // 根据options查找最近的module.ts
     const projectModulePath = await findModuleFromOptions(tree, options) || options.path + '/app.module.ts';
     const sourceFile = readIntoSourceFile(tree, projectModulePath);
 
@@ -58,7 +60,8 @@ export default function(options: HelloWorldSchema): Rule {
     const declarationRecorder = tree.beginUpdate(projectModulePath);
     for (const change of declarationChanges) {
       if (change instanceof InsertChange) {
-        declarationRecorder.insertLeft(change.pos, change.toAdd);
+        // declarationRecorder.insertLeft(change.pos, change.toAdd);
+        applyToUpdateRecorder(declarationRecorder, [change]); // 效果同上
       }
     }
     tree.commitUpdate(declarationRecorder);
@@ -155,20 +158,32 @@ export default function(options: HelloWorldSchema): Rule {
     /*
     * 安装依赖
     * */
+
     const dependencies = [
       { name: '@fortawesome/fontawesome-svg-core', version: '~1.2.25' },
       { name: '@fortawesome/free-solid-svg-icons', version: '~5.11.2' },
       { name: '@fortawesome/angular-fontawesome', version: '~0.5.0' }
     ];
+
     dependencies.forEach(dependency => {
-      addPackageToPackageJson(
+      /*
+      * 手动
+      * addPackageToPackageJson(
         tree,
         dependency.name,
         dependency.version
       );
+      * */
+      addPackageJsonDependency(tree, {
+        type: NodeDependencyType.Default,
+        name: dependency.name,
+        version: dependency.version,
+        overwrite: true
+      });
     });
 
-    // console.log(readIntoSourceFile(tree, 'package.json').text);
+    // projectModulePath
+    console.log(readIntoSourceFile(tree, './package.json').text);
 
     context.addTask(
       new NodePackageInstallTask({

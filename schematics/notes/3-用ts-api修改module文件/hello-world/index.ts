@@ -11,7 +11,7 @@ import {
   chain,
   FileEntry,
   forEach,
-  MergeStrategy
+  MergeStrategy, renameTemplateFiles
 } from '@angular-devkit/schematics';
 import {normalize, strings, virtualFs, workspaces} from '@angular-devkit/core';
 
@@ -54,14 +54,15 @@ export function helloWorld(options: HelloWorldSchema): Rule {
     // console.log('options>>>', options);
     const componentFragmentName = strings.classify(options.name);
     const fileName = `hello-${options.name}.component`;
-    const templateSource = apply(url('./files'), [
-      template({
+    const templateSource = apply(url('./files'), [ // 筛选源头，默认是整个tree
+      template({ // applyTemplates 相当于template + renameTemplateFiles
         ...options,
         selectorName: strings.dasherize(options.name),
         componentFragmentName
       }),
+      renameTemplateFiles(), // xxx.template => xxx
       move(normalize(options.path)), // 输出目录
-      forEach((fileEntry: FileEntry) => { // 上面用applyTemplates可以改名
+      forEach((fileEntry: FileEntry) => { // 尝试上面用applyTemplates可以改名
         if (tree.exists(fileEntry.path)) {
           // tree.overwrite(fileEntry.path, fileEntry.content);
           tree.rename(fileEntry.path, fileEntry.path.replace('.tpl', ''));
