@@ -9,7 +9,8 @@
     "gulp": "gulp",
     "build": "npm run build:lib && npm run gulp",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "compiler": "ts-node --project tsconfig.node.json compiler"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +45,7 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "ng-packagr": "^13.2.1",
     "sass": "^1.36.0",
+    "ts-node": "^10.7.0",
     "typescript": "~4.5.5"
   },
   "schematics": "./schematics/collection.json"

@@ -6,7 +6,7 @@ const core_1 = require("@angular-devkit/core");
 const typescript_1 = require("typescript");
 const workspace_1 = require("@schematics/angular/utility/workspace");
 const find_module_1 = require("@schematics/angular/utility/find-module");
-const ast_utils_1 = require("@schematics/angular/utility/ast-utils");
+const schematics_2 = require("@angular/cdk/schematics");
 const change_1 = require("@schematics/angular/utility/change");
 function helloWorld(options) {
     return async (tree, _context) => {
@@ -54,7 +54,7 @@ function helloWorld(options) {
         // 用 buildRelativePath 取得 import 路徑
         const relativePath = (0, find_module_1.buildRelativePath)(targetModulePath, componentPath); // ./madao/hello-madao.component
         // @ts-ignore
-        const declarationChanges = (0, ast_utils_1.addDeclarationToModule)(sourceFile, targetModulePath, componentName, relativePath);
+        const declarationChanges = (0, schematics_2.addDeclarationToModule)(sourceFile, targetModulePath, componentName, relativePath);
         // console.log('declarationChanges>>>', declarationChanges);
         const declarationRecorder = tree.beginUpdate(targetModulePath);
         for (const change of declarationChanges) {

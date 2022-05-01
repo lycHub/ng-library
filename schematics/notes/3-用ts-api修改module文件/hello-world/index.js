@@ -30,6 +30,7 @@ function helloWorld(options) {
                 selectorName: core_1.strings.dasherize(options.name),
                 componentFragmentName
             }),
+            (0, schematics_1.renameTemplateFiles)(),
             (0, schematics_1.move)((0, core_1.normalize)(options.path)),
             (0, schematics_1.forEach)((fileEntry) => {
                 if (tree.exists(fileEntry.path)) {
@@ -77,9 +78,7 @@ function helloWorld(options) {
             }
         }
         //  在原本的 Identifier 結尾的地方加上 ', componentName' 的字
-        declarationRecorder.insertLeft(poi, toInsert);
-        // 把變更記錄提交給 Tree ， Tree 會自動幫我們變更
-        // tree.commitUpdate(declarationRecorder);
+        declarationRecorder.insertLeft(poi, toInsert); // 可用 addDeclarationToModule
         // 先抓到所有的 ImportDeclaration
         const allImports = sourceFile.statements.filter(node => (0, typescript_1.isImportDeclaration)(node));
         // 找到最後一個 ImportDeclaration
@@ -95,6 +94,7 @@ function helloWorld(options) {
         const importStr = `\nimport { ${componentName} } from './${options.name}/${fileName}';`;
         // 在最後一個 ImportDeclaration 結束的位置插入程式碼
         declarationRecorder.insertLeft(lastImport?.end || 0, importStr);
+        // 把變更記錄提交給 Tree ， Tree 會自動幫我們變更
         tree.commitUpdate(declarationRecorder);
         // 重新讀取檔案並印出來看看
         // console.log(tree.read(targetPath)!.toString());
