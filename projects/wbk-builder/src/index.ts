@@ -13,6 +13,7 @@ export const buildWithPlugin = (
   options: BrowserBuilderOptions,
   context: BuilderContext
 ): ReturnType<typeof executeBrowserBuilder> => {
+  console.log('build options>>>>', options);
   // @ts-ignore
   return executeBrowserBuilder(options, context, plugin());
 };

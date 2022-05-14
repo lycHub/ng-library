@@ -1,12 +1,12 @@
 {
   "builders": {
-    "wbk": {
+    "browser": {
       "implementation": "./dist/index.js",
       "schema": "./src/schema.json",
       "description": "custom webpack config"
     },
-    "dev": {
-      "implementation": "./dist/dev.js",
+    "dev-server": {
+      "implementation": "./dist/dev-server.js",
       "schema": "./src/schema.json",
       "description": "custom webpack config"
     }

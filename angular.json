@@ -77,7 +77,7 @@
           }
         },
         "wbk-builder": {
-          "builder": "@ysx/wbk-builder:wbk",
+          "builder": "@ysx/wbk-builder:browser",
           "options": {
             "outputPath": "dist/xm-docs",
             "index": "projects/xm-docs/src/index.html",
@@ -129,7 +129,10 @@
           "defaultConfiguration": "production"
         },
         "wbk-builder-dev": {
-          "builder": "@ysx/wbk-builder:dev",
+          "builder": "@ysx/wbk-builder:dev-server",
+          "options": {
+            "browserTarget": "xm-docs:wbk-builder"
+          },
           "configurations": {
             "production": {
               "browserTarget": "xm-docs:wbk-builder:production"

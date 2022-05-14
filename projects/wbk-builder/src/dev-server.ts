@@ -18,6 +18,7 @@ export const buildWithPlugin = (
 ): Observable<DevServerBuilderOutput> => {
   console.log('dev options>>>>', options.browserTarget); // xm-docs:wbk-builder:development, 即使运行的是wbk-builder-dev
   const browserTarget = targetFromTargetString(options.browserTarget); // string 格式化成对象
+  // console.log('browserTarget>>>', browserTarget);
 
   async function setup() {
     return await context.getTargetOptions(
