@@ -151,14 +151,14 @@
             "main": "projects/xm-docs/src/main.ts",
             "polyfills": "projects/xm-docs/src/polyfills.ts",
             "tsConfig": "projects/xm-docs/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
+            "inlineStyleLanguage": "css",
             "assets": [
               "projects/xm-docs/src/favicon.ico",
               "projects/xm-docs/src/assets"
             ],
             "styles": [
               "lib/styles/index.css",
-              "projects/xm-docs/src/styles.scss"
+              "projects/xm-docs/src/styles.css"
             ],
             "scripts": []
           },
