@@ -1,5 +1,5 @@
 {
-  "name": "@ysx/copy-file",
+  "name": "@ysx/wbk-builder",
   "version": "1.0.0",
   "description": "angular builder",
   "main": "dist/index.js",

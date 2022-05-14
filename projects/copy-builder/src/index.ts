@@ -1,4 +1,4 @@
-import {BuilderContext, BuilderOutput, createBuilder, targetFromTargetString} from '@angular-devkit/architect';
+import {BuilderContext, BuilderOutput, createBuilder} from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
 import { promises as fs } from 'fs';
 
@@ -13,8 +13,7 @@ async function copyFileBuilder(
   options: Options,
   context: BuilderContext,
 ): Promise<BuilderOutput> {
-  const targetPesc = targetFromTargetString((options.destination))
-  console.log('targetPesc>>>>>>>', targetPesc);
+  console.log('abc>>>>>>>>');
   context.reportStatus('coping>>>>');
   try {
     await fs.copyFile(options.source, options.destination);

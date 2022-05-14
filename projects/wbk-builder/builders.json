@@ -1,0 +1,14 @@
+{
+  "builders": {
+    "wbk": {
+      "implementation": "./dist/index.js",
+      "schema": "./src/schema.json",
+      "description": "custom webpack config"
+    },
+    "dev": {
+      "implementation": "./dist/dev.js",
+      "schema": "./src/schema.json",
+      "description": "custom webpack config"
+    }
+  }
+}

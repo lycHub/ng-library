@@ -1,0 +1,677 @@
+{
+  "mode": "production",
+  "devtool": false,
+  "target": [
+    "web",
+    "es2015"
+  ],
+  "profile": false,
+  "resolve": {
+    "roots": [
+      "D:\\codes\\ng-library\\projects\\xm-docs"
+    ],
+    "extensions": [
+      ".ts",
+      ".tsx",
+      ".mjs",
+      ".js"
+    ],
+    "symlinks": true,
+    "modules": [
+      "D:/codes/ng-library",
+      "node_modules"
+    ],
+    "mainFields": [
+      "es2015",
+      "browser",
+      "module",
+      "main"
+    ],
+    "conditionNames": [
+      "es2015",
+      "..."
+    ]
+  },
+  "resolveLoader": {
+    "symlinks": true
+  },
+  "context": "D:\\codes\\ng-library",
+  "entry": {
+    "main": [
+      "D:\\codes\\ng-library\\projects\\xm-docs\\src\\main.ts"
+    ],
+    "polyfills": [
+      "D:\\codes\\ng-library\\projects\\xm-docs\\src\\polyfills.ts",
+      "D:\\codes\\ng-library\\node_modules\\core-js\\proposals\\reflect-metadata.js"
+    ],
+    "styles": [
+      "D:\\codes\\ng-library\\lib\\styles\\index.css",
+      "D:\\codes\\ng-library\\projects\\xm-docs\\src\\styles.scss"
+    ]
+  },
+  "externals": [],
+  "output": {
+    "uniqueName": "xm-docs",
+    "hashFunction": "xxhash64",
+    "clean": true,
+    "path": "D:\\codes\\ng-library\\dist\\xm-docs",
+    "publicPath": "",
+    "filename": "[name].[contenthash:20].js",
+    "chunkFilename": "[name].[contenthash:20].js",
+    "crossOriginLoading": false,
+    "trustedTypes": "angular#bundler",
+    "scriptType": "module"
+  },
+  "watchOptions": {},
+  "performance": {
+    "hints": false
+  },
+  "ignoreWarnings": [
+    {},
+    {},
+    {}
+  ],
+  "module": {
+    "strictExportPresence": true,
+    "parser": {
+      "javascript": {
+        "url": false,
+        "worker": false
+      }
+    },
+    "rules": [
+      {
+        "test": {},
+        "resourceQuery": {},
+        "type": "asset/source"
+      },
+      {
+        "test": {},
+        "sideEffects": true
+      },
+      {
+        "test": {},
+        "resolve": {
+          "fullySpecified": false
+        },
+        "exclude": [
+          {}
+        ],
+        "use": [
+          {
+            "loader": "D:\\codes\\ng-library\\node_modules\\@angular-devkit\\build-angular\\src\\babel\\webpack-loader.js",
+            "options": {
+              "cacheDirectory": "D:\\codes\\ng-library\\.angular\\cache\\13.2.4\\babel-webpack",
+              "scriptTarget": 4
+            }
+          }
+        ]
+      },
+      {
+        "test": {},
+        "loader": "D:\\codes\\ng-library\\node_modules\\@ngtools\\webpack\\src\\ivy\\index.js",
+        "exclude": [
+          {}
+        ]
+      },
+      {
+        "test": {},
+        "rules": [
+          {
+            "oneOf": [
+              {
+                "use": [
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\mini-css-extract-plugin\\dist\\loader.js"
+                  },
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\css-loader\\dist\\cjs.js",
+                    "options": {
+                      "url": false,
+                      "sourceMap": false
+                    }
+                  },
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\postcss-loader\\dist\\cjs.js",
+                    "options": {
+                      "sourceMap": false
+                    }
+                  }
+                ],
+                "include": [
+                  "D:\\codes\\ng-library\\lib\\styles\\index.css",
+                  "D:\\codes\\ng-library\\projects\\xm-docs\\src\\styles.scss"
+                ],
+                "resourceQuery": {
+                  "not": [
+                    {}
+                  ]
+                }
+              },
+              {
+                "use": [
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\postcss-loader\\dist\\cjs.js",
+                    "options": {}
+                  }
+                ],
+                "type": "asset/source"
+              }
+            ]
+          },
+          {
+            "use": []
+          }
+        ]
+      },
+      {
+        "test": {},
+        "rules": [
+          {
+            "oneOf": [
+              {
+                "use": [
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\mini-css-extract-plugin\\dist\\loader.js"
+                  },
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\css-loader\\dist\\cjs.js",
+                    "options": {
+                      "url": false,
+                      "sourceMap": false
+                    }
+                  },
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\postcss-loader\\dist\\cjs.js",
+                    "options": {
+                      "sourceMap": false
+                    }
+                  }
+                ],
+                "include": [
+                  "D:\\codes\\ng-library\\lib\\styles\\index.css",
+                  "D:\\codes\\ng-library\\projects\\xm-docs\\src\\styles.scss"
+                ],
+                "resourceQuery": {
+                  "not": [
+                    {}
+                  ]
+                }
+              },
+              {
+                "use": [
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\postcss-loader\\dist\\cjs.js",
+                    "options": {}
+                  }
+                ],
+                "type": "asset/source"
+              }
+            ]
+          },
+          {
+            "use": [
+              {
+                "loader": "D:\\codes\\ng-library\\node_modules\\resolve-url-loader\\index.js",
+                "options": {
+                  "sourceMap": false
+                }
+              },
+              {
+                "loader": "D:\\codes\\ng-library\\node_modules\\sass-loader\\dist\\cjs.js",
+                "options": {
+                  "implementation": {
+                    "workers": [],
+                    "availableWorkers": [],
+                    "requests": {},
+                    "idCounter": 1,
+                    "nextWorkerIndex": 0
+                  },
+                  "sourceMap": true,
+                  "sassOptions": {
+                    "fiber": false,
+                    "precision": 8,
+                    "includePaths": [],
+                    "outputStyle": "expanded",
+                    "quietDeps": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "test": {},
+        "rules": [
+          {
+            "oneOf": [
+              {
+                "use": [
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\mini-css-extract-plugin\\dist\\loader.js"
+                  },
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\css-loader\\dist\\cjs.js",
+                    "options": {
+                      "url": false,
+                      "sourceMap": false
+                    }
+                  },
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\postcss-loader\\dist\\cjs.js",
+                    "options": {
+                      "sourceMap": false
+                    }
+                  }
+                ],
+                "include": [
+                  "D:\\codes\\ng-library\\lib\\styles\\index.css",
+                  "D:\\codes\\ng-library\\projects\\xm-docs\\src\\styles.scss"
+                ],
+                "resourceQuery": {
+                  "not": [
+                    {}
+                  ]
+                }
+              },
+              {
+                "use": [
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\postcss-loader\\dist\\cjs.js",
+                    "options": {}
+                  }
+                ],
+                "type": "asset/source"
+              }
+            ]
+          },
+          {
+            "use": [
+              {
+                "loader": "D:\\codes\\ng-library\\node_modules\\resolve-url-loader\\index.js",
+                "options": {
+                  "sourceMap": false
+                }
+              },
+              {
+                "loader": "D:\\codes\\ng-library\\node_modules\\sass-loader\\dist\\cjs.js",
+                "options": {
+                  "implementation": {
+                    "workers": [],
+                    "availableWorkers": [],
+                    "requests": {},
+                    "idCounter": 1,
+                    "nextWorkerIndex": 0
+                  },
+                  "sourceMap": true,
+                  "sassOptions": {
+                    "fiber": false,
+                    "indentedSyntax": true,
+                    "precision": 8,
+                    "includePaths": [],
+                    "outputStyle": "expanded",
+                    "quietDeps": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "test": {},
+        "rules": [
+          {
+            "oneOf": [
+              {
+                "use": [
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\mini-css-extract-plugin\\dist\\loader.js"
+                  },
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\css-loader\\dist\\cjs.js",
+                    "options": {
+                      "url": false,
+                      "sourceMap": false
+                    }
+                  },
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\postcss-loader\\dist\\cjs.js",
+                    "options": {
+                      "sourceMap": false
+                    }
+                  }
+                ],
+                "include": [
+                  "D:\\codes\\ng-library\\lib\\styles\\index.css",
+                  "D:\\codes\\ng-library\\projects\\xm-docs\\src\\styles.scss"
+                ],
+                "resourceQuery": {
+                  "not": [
+                    {}
+                  ]
+                }
+              },
+              {
+                "use": [
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\postcss-loader\\dist\\cjs.js",
+                    "options": {}
+                  }
+                ],
+                "type": "asset/source"
+              }
+            ]
+          },
+          {
+            "use": [
+              {
+                "loader": "D:\\codes\\ng-library\\node_modules\\less-loader\\dist\\cjs.js",
+                "options": {
+                  "implementation": {
+                    "mixin": {},
+                    "lesscHelper": {},
+                    "fs": {
+                      "F_OK": 0,
+                      "R_OK": 4,
+                      "W_OK": 2,
+                      "X_OK": 1,
+                      "constants": {
+                        "UV_FS_SYMLINK_DIR": 1,
+                        "UV_FS_SYMLINK_JUNCTION": 2,
+                        "O_RDONLY": 0,
+                        "O_WRONLY": 1,
+                        "O_RDWR": 2,
+                        "UV_DIRENT_UNKNOWN": 0,
+                        "UV_DIRENT_FILE": 1,
+                        "UV_DIRENT_DIR": 2,
+                        "UV_DIRENT_LINK": 3,
+                        "UV_DIRENT_FIFO": 4,
+                        "UV_DIRENT_SOCKET": 5,
+                        "UV_DIRENT_CHAR": 6,
+                        "UV_DIRENT_BLOCK": 7,
+                        "S_IFMT": 61440,
+                        "S_IFREG": 32768,
+                        "S_IFDIR": 16384,
+                        "S_IFCHR": 8192,
+                        "S_IFLNK": 40960,
+                        "O_CREAT": 256,
+                        "O_EXCL": 1024,
+                        "UV_FS_O_FILEMAP": 536870912,
+                        "O_TRUNC": 512,
+                        "O_APPEND": 8,
+                        "F_OK": 0,
+                        "R_OK": 4,
+                        "W_OK": 2,
+                        "X_OK": 1,
+                        "UV_FS_COPYFILE_EXCL": 1,
+                        "COPYFILE_EXCL": 1,
+                        "UV_FS_COPYFILE_FICLONE": 2,
+                        "COPYFILE_FICLONE": 2,
+                        "UV_FS_COPYFILE_FICLONE_FORCE": 4,
+                        "COPYFILE_FICLONE_FORCE": 4
+                      },
+                      "promises": {}
+                    },
+                    "options": {
+                      "javascriptEnabled": false,
+                      "depends": false,
+                      "compress": false,
+                      "lint": false,
+                      "paths": [],
+                      "color": true,
+                      "strictImports": false,
+                      "insecure": false,
+                      "rootpath": "",
+                      "rewriteUrls": false,
+                      "math": 1,
+                      "strictUnits": false,
+                      "globalVars": null,
+                      "modifyVars": null,
+                      "urlArgs": ""
+                    }
+                  },
+                  "sourceMap": false,
+                  "lessOptions": {
+                    "javascriptEnabled": true,
+                    "paths": []
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "test": {},
+        "rules": [
+          {
+            "oneOf": [
+              {
+                "use": [
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\mini-css-extract-plugin\\dist\\loader.js"
+                  },
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\css-loader\\dist\\cjs.js",
+                    "options": {
+                      "url": false,
+                      "sourceMap": false
+                    }
+                  },
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\postcss-loader\\dist\\cjs.js",
+                    "options": {
+                      "sourceMap": false
+                    }
+                  }
+                ],
+                "include": [
+                  "D:\\codes\\ng-library\\lib\\styles\\index.css",
+                  "D:\\codes\\ng-library\\projects\\xm-docs\\src\\styles.scss"
+                ],
+                "resourceQuery": {
+                  "not": [
+                    {}
+                  ]
+                }
+              },
+              {
+                "use": [
+                  {
+                    "loader": "D:\\codes\\ng-library\\node_modules\\postcss-loader\\dist\\cjs.js",
+                    "options": {}
+                  }
+                ],
+                "type": "asset/source"
+              }
+            ]
+          },
+          {
+            "use": [
+              {
+                "loader": "D:\\codes\\ng-library\\node_modules\\stylus-loader\\dist\\cjs.js",
+                "options": {
+                  "sourceMap": false,
+                  "stylusOptions": {
+                    "compress": false,
+                    "sourceMap": {
+                      "comment": false
+                    },
+                    "paths": []
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "experiments": {
+    "backCompat": false,
+    "syncWebAssembly": true,
+    "asyncWebAssembly": true
+  },
+  "infrastructureLogging": {
+    "level": "error"
+  },
+  "stats": {
+    "all": false,
+    "colors": true,
+    "hash": true,
+    "timings": true,
+    "chunks": true,
+    "builtAt": true,
+    "warnings": true,
+    "errors": true,
+    "assets": true,
+    "cachedAssets": true,
+    "ids": true,
+    "entrypoints": true
+  },
+  "cache": {
+    "type": "filesystem",
+    "cacheDirectory": "D:\\codes\\ng-library\\.angular\\cache\\13.2.4\\angular-webpack",
+    "maxMemoryGenerations": 1,
+    "name": "463efa82463b1d013b79d399713ec9543d635725"
+  },
+  "optimization": {
+    "minimizer": [
+      {
+        "options": {
+          "define": {
+            "ngDevMode": false,
+            "ngI18nClosureMode": false
+          },
+          "sourcemap": false,
+          "target": 4,
+          "keepIdentifierNames": false,
+          "keepNames": false
+        }
+      },
+      {},
+      {
+        "esbuild": {
+          "alwaysUseWasm": false,
+          "initialized": false
+        },
+        "targets": [
+          "chrome98",
+          "edge98",
+          "edge97",
+          "firefox97",
+          "firefox91",
+          "ios15.2",
+          "ios15.0",
+          "ios14.5",
+          "ios14.0",
+          "safari15.2",
+          "safari15.1",
+          "safari15",
+          "safari14.1",
+          "safari14"
+        ]
+      }
+    ],
+    "moduleIds": "deterministic",
+    "chunkIds": "deterministic",
+    "emitOnErrors": false,
+    "runtimeChunk": "single",
+    "splitChunks": {
+      "maxAsyncRequests": null,
+      "cacheGroups": {
+        "default": false,
+        "common": false,
+        "vendors": false,
+        "defaultVendors": false
+      }
+    }
+  },
+  "plugins": [
+    {},
+    {
+      "options": {},
+      "modules": {}
+    },
+    {
+      "profile": false,
+      "modulesCount": 5000,
+      "dependenciesCount": 10000,
+      "showEntries": true,
+      "showModules": true,
+      "showDependencies": true,
+      "showActiveModules": false
+    },
+    {
+      "fileDependencies": {},
+      "requiredFilesToEmit": {},
+      "requiredFilesToEmitCache": {},
+      "fileEmitHistory": {},
+      "pluginOptions": {
+        "emitClassMetadata": false,
+        "emitNgModuleScope": false,
+        "jitMode": false,
+        "fileReplacements": {
+          "D:\\codes\\ng-library\\projects\\xm-docs\\src\\environments\\environment.ts": "D:\\codes\\ng-library\\projects\\xm-docs\\src\\environments\\environment.prod.ts"
+        },
+        "substitutions": {},
+        "directTemplateLoading": true,
+        "tsconfig": "D:\\codes\\ng-library\\projects\\xm-docs\\tsconfig.app.json",
+        "compilerOptions": {
+          "sourceMap": false,
+          "declaration": false,
+          "declarationMap": false,
+          "preserveSymlinks": false
+        },
+        "inlineStyleFileExtension": "scss"
+      }
+    },
+    {
+      "budgets": [
+        {
+          "type": "anyComponentStyle",
+          "maximumWarning": "2kb",
+          "maximumError": "4kb"
+        }
+      ]
+    },
+    {},
+    {
+      "_sortedModulesCache": {},
+      "options": {
+        "filename": "[name].[contenthash:20].css",
+        "ignoreOrder": false,
+        "runtime": true,
+        "chunkFilename": "[name].[contenthash:20].css"
+      },
+      "runtimeOptions": {
+        "linkType": "text/css"
+      }
+    },
+    {},
+    {
+      "_projectRoot": "D:\\codes\\ng-library\\projects\\xm-docs",
+      "_analytics": {},
+      "_category": "wbk",
+      "aotEnabled": false,
+      "_built": false,
+      "_stats": {
+        "errors": [],
+        "numberOfNgOnInit": 0,
+        "numberOfComponents": 0,
+        "initialChunkSize": 0,
+        "totalChunkCount": 0,
+        "totalChunkSize": 0,
+        "lazyChunkCount": 0,
+        "lazyChunkSize": 0,
+        "assetCount": 0,
+        "assetSize": 0,
+        "polyfillSize": 0,
+        "cssSize": 0
+      }
+    }
+  ],
+  "node": false
+}

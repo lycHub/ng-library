@@ -35,6 +35,7 @@
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "@ysx/copy-file": "file:projects/copy-builder",
+    "@ysx/wbk-builder": "file:projects/wbk-builder",
     "gulp": "^4.0.2",
     "gulp-sass": "^5.0.0",
     "jasmine-core": "~3.8.0",
