@@ -17,12 +17,12 @@ export function plugin() {
               test: "match",
               use: {
                 loader: "match",
-                options: "merge",
-              },
-            },
-          },
+                options: "merge"
+              }
+            }
+          }
         })(webpackConfig, customWebpackConfig);
-      writeFileSync('./webpack.config.postcss.json', JSON.stringify(result, null, 2));
+      // writeFileSync('./webpack.config.postcss.json', JSON.stringify(result, null, 2));
       return result;
     },
     indexHtml: async (content: string) => {

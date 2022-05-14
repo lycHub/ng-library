@@ -130,9 +130,6 @@
         },
         "wbk-builder-dev": {
           "builder": "@ysx/wbk-builder:dev",
-          "options": {
-            "browserTarget": "xm-docs:wbk-builder"
-          },
           "configurations": {
             "production": {
               "browserTarget": "xm-docs:wbk-builder:production"

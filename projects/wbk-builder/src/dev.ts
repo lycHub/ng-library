@@ -20,7 +20,7 @@ export const buildWithPlugin = (
   const browserTarget = targetFromTargetString(options.browserTarget); // string 格式化成对象
 
   async function setup() {
-    return context.getTargetOptions(
+    return await context.getTargetOptions(
       browserTarget
     ) as unknown as DevServerBuilderOptions;
 
