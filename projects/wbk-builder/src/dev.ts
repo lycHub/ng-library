@@ -30,7 +30,7 @@ export const buildWithPlugin = (
     switchMap((_options) => {
       // console.log('_options>>', _options);
       // @ts-ignore
-      return executeDevServerBuilder(options, context, plugin('dev'));
+      return executeDevServerBuilder(options, context, plugin());
     })
   );
 };

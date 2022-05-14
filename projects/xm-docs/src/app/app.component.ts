@@ -4,6 +4,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   selector: 'app-root',
   template: `
     <div class="app-root">
+      <p class="text-3xl font-bold underline">abc</p>
       <div class="demo-box">
         <a
           xmBtn
@@ -23,18 +24,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
     <button (click)="xmTooltip.hide()">hide</button>
   `
 ,
-  styles: [`
-    .app-root {
-      width: 300px;
-      height: 200px;
-      margin: 100px auto 0;
-      border: 1px solid;
-      overflow-y: auto;
-    }
-    .demo-box {
-      height: 500px;
-    }
-  `],
+  styleUrls: ['app.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {

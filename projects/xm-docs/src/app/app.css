@@ -1,0 +1,13 @@
+.app-root {
+  width: 300px;
+  height: 200px;
+  margin: 100px auto 0;
+  border: 1px solid;
+  overflow-y: auto;
+  & p {
+    border: 2px solid;
+  }
+}
+.demo-box {
+  height: 500px;
+}
