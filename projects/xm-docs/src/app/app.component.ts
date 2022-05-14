@@ -4,7 +4,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   selector: 'app-root',
   template: `
     <div class="app-root">
-      <p class="text-3xl font-bold underline">abc</p>
+      <p class="text-3xl font-bold underline">三大sas</p>
       <div class="demo-box">
         <a
           xmBtn

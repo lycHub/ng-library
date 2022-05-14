@@ -5,7 +5,7 @@
   border: 1px solid;
   overflow-y: auto;
   & p {
-    border: 2px solid;
+    border: 2px solid blue;
   }
 }
 .demo-box {
